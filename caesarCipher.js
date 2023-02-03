@@ -30,15 +30,16 @@ const caesarCipher = (str, shift) => {
   let cipheredTxt = '';
 
   str.split('').forEach((strLetter) => {
-    for (let i = 0; i < alphabet.length; i++) {
-      if (strLetter === alphabet[i]) {
-        cipheredTxt += alphabet[i + shift];
-      }
-    }
+    console.log(strLetter);
+    console.log(shift);
+    let strLetterIndex = alphabet.findIndex((el) => el.toUpperCase() === strLetter.toUpperCase());
+    console.log(strLetterIndex)
+
+    cipheredTxt += alphabet[(strLetterIndex + shift) % 26];
   });
   return cipheredTxt;
 };
 
-console.log(caesarCipher('Z', 1))
+console.log(caesarCipher('aB', 1));
 
 export default caesarCipher;
