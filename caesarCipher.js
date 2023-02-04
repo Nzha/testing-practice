@@ -30,10 +30,9 @@ const caesarCipher = (str, shift) => {
   let result = '';
 
   str.split('').forEach((char) => {
-    console.log(char);
-    console.log(shift);
-    let charIndex = alphabet.findIndex((el) => el.toUpperCase() === char.toUpperCase());
-    console.log(charIndex)
+    let charIndex = alphabet.findIndex(
+      (el) => el.toUpperCase() === char.toUpperCase()
+    );
 
     // If char is not a letter, add char to result, else add ciphered char
     if (charIndex === -1) {
@@ -47,6 +46,6 @@ const caesarCipher = (str, shift) => {
   return result;
 };
 
-console.log(caesarCipher('Ac!d!', 1));
+console.log(caesarCipher('Ac! d!', 1));
 
 export default caesarCipher;
