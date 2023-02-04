@@ -23,3 +23,9 @@ test('[1,8,3,4,2,"6"] returns error message', () => {
     'Array must include only numbers'
   );
 });
+
+test('[] returns error message', () => {
+  expect(analyzeArray([])).toBe(
+    'Array is empty'
+  );
+});

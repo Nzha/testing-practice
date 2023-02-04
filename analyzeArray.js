@@ -5,6 +5,7 @@ const onlyNumbers = (arr) => {
 };
 
 const analyzeArray = (arr) => {
+  if (arr.length === 0) return 'Array is empty';
   if (!onlyNumbers(arr)) return 'Array must include only numbers';
   let result = {};
   let average = arr.reduce((a, b) => a + b, 0) / arr.length;
@@ -17,6 +18,6 @@ const analyzeArray = (arr) => {
 
 export default analyzeArray;
 
-const testArray = analyzeArray([1, 8, 3, 4, 2, '6']);
+const testArray = analyzeArray([]);
 
 console.log(testArray);
