@@ -6,7 +6,7 @@ const caesarCipher = (str, shift) => {
     'D',
     'E',
     'F',
-    'J',
+    'G',
     'H',
     'I',
     'J',
@@ -27,19 +27,26 @@ const caesarCipher = (str, shift) => {
     'Y',
     'Z',
   ];
-  let cipheredTxt = '';
+  let result = '';
 
-  str.split('').forEach((strLetter) => {
-    console.log(strLetter);
+  str.split('').forEach((char) => {
+    console.log(char);
     console.log(shift);
-    let strLetterIndex = alphabet.findIndex((el) => el.toUpperCase() === strLetter.toUpperCase());
-    console.log(strLetterIndex)
+    let charIndex = alphabet.findIndex((el) => el.toUpperCase() === char.toUpperCase());
+    console.log(charIndex)
 
-    cipheredTxt += alphabet[(strLetterIndex + shift) % 26];
+    // If char is not a letter, add char to result, else add ciphered char
+    if (charIndex === -1) {
+      result += char;
+    } else if (char === char.toUpperCase()) {
+      result += alphabet[(charIndex + shift) % 26];
+    } else {
+      result += alphabet[(charIndex + shift) % 26].toLowerCase();
+    }
   });
-  return cipheredTxt;
+  return result;
 };
 
-console.log(caesarCipher('aB', 1));
+console.log(caesarCipher('Ac!d!', 1));
 
 export default caesarCipher;
