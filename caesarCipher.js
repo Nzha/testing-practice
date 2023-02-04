@@ -19,6 +19,6 @@ const caesarCipher = (str, shift) => {
   return result;
 };
 
-console.log(caesarCipher('Ac! d!', 1));
+console.log(caesarCipher('1d A1ab!', 1));
 
 export default caesarCipher;
