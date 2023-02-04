@@ -1,46 +1,19 @@
 const caesarCipher = (str, shift) => {
-  let alphabet = [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-    'R',
-    'S',
-    'T',
-    'U',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z',
-  ];
+  let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let result = '';
 
   str.split('').forEach((char) => {
-    let charIndex = alphabet.findIndex(
-      (el) => el.toUpperCase() === char.toUpperCase()
-    );
+    let charIndex = alphabet.indexOf(char.toUpperCase());
 
-    // If char is not a letter, add char to result, else add ciphered char
+    // If char is not a letter, add char to result, else add ciphered char in upper or lowercase
     if (charIndex === -1) {
       result += char;
-    } else if (char === char.toUpperCase()) {
-      result += alphabet[(charIndex + shift) % 26];
     } else {
-      result += alphabet[(charIndex + shift) % 26].toLowerCase();
+      let cipheredIndex = (charIndex + shift) % 26;
+      result +=
+        char === char.toUpperCase()
+          ? alphabet[cipheredIndex]
+          : alphabet[cipheredIndex].toLowerCase();
     }
   });
   return result;
